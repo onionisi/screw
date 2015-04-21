@@ -1,0 +1,7 @@
+# Runtime requirements
+-r requirements.txt
+
+# For dev or debug or deploy
+unittest2==1.0.1
+ipdb==0.8
+# fabric

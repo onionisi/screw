@@ -1,0 +1,10 @@
+配置说明：
+
+config
+|- production.py            用于线上部署的配置
+|- development.py.bak       用于本地测试的配置（使用时请去掉".bak"后缀，但请勿将development.py提交到git库中！）
+
+
+新增配置的方法：
+1. 如果线上和本地的配置一致，则 **只需要** 在`production.py`中配置即可
+2. 如果线上和本地的配置不一致，则分别在`production.py`和`development`中独立配置
