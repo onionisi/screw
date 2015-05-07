@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block header %}
+<section>
+	<a href="javascript:history.go(-1);"><span class="return">返回</span></a>
+</section>
+<section>
+	<h1 class="title"></h1>
+</section>
+<section></section>
+{% end %}
+
+{% block script %}
+<script>
+$(document).ready(function(){
+		setTimeout(function(){
+			location.href="/";
+			},3000);
+		});
+</script>
+{% end %}
+
+{% block body %}
+<div class="g-bd">
+	<div class="m-order-time u-box " style="text-align: center;">
+		<img src="{{ static_url("images/broken_link.jpg") }}">
+		抱歉，您浏览的页面没有找到!<br><br>
+		请检查您输入的地址是否正确，此页面将在3秒后自动转入 <a href="/" style="color: #0a8cd2;">本站首页</a>
+	</div>
+</div>
+{% end %}

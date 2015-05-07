@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block script %}
+<script language="javascript">
+$(document).ready(function() {
+		$("img[data-url]").imglazyload();
+		});
+</script>
+<style type="text/css">
+/* 会员中心框 */
+.member-my-box {
+    background-color:#FFFFFF;
+    border:none;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0 2px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2px rgba(0, 0, 0, 0.07);
+    padding: 10px 5px ;
+    width:300px;
+    margin:10px auto;
+    font-size:14px;
+    font-family:"微软雅黑";
+}
+.my-order1, .my-order3 {width:290px; margin:0px auto; height:18px; line-height:18px; font-size:12px; font-family:"微软雅黑"; color:#333333;}
+.my-order2 {width:300px; height:104px; margin:5px auto; border-top:#e5e5e5 1px solid; border-bottom:#e5e5e5 1px solid; padding:2px 0px 2px 0px;}
+.my-order-id, .my-order-goods, .my-order-money {float:left;}
+.my-order-state {color:#c70000;}
+.my-order-state, .my-order-view, .my-order-goods-sum {float:right;}
+.my-order-goods {width:279px; margin-top:5px; margin-bottom:5px; overflow:hidden;}
+.my-order-view {background:url(/static/images/icons/arrow-right.png) no-repeat; width:21px; height:17px; margin-top:43px;}
+.my-order-goods img {margin-right:4px; width:94px; height:94px;}
+</style>
+<style type="text/css"></style>
+{% end %}
+
+{% block header %}
+<section>
+	<a href="javascript:history.go(-1);"><span class="return">返回</span></a>
+</section>
+<section>
+	<h1 class="title">我的订单</h1>
+</section>
+<section></section>
+{% end %}
+
+{% block body %}
+{% for each in orders %}
+{% module Order(each) %}
+{% end %}
+{% end %}

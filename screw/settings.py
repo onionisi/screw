@@ -81,7 +81,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'screw',
-    #'app.auth_users',
+    'screw.app.good',
 )
 
 MIDDLEWARE_CLASSES = (
