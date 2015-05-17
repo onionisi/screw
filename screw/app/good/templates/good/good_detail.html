@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load uifilters %}
 
 {% block script %}
 <style>
@@ -40,7 +41,7 @@
       margin-top: 30px; margin-bottom: 5px; padding-bottom: 5px; border-bottom: 1px dotted #ccc; color: #8B4513;
     }
 </style>
-{% end %}
+{% endblock %}
 
 {% block header %}
         <section>
@@ -50,29 +51,29 @@
             <h1 class="title">商品详情</h1>
         </section>
         <section></section>
-{% end %}
+{% endblock %}
 
 
 {% block body %}
 <div class='m-proinfo-buy'>
     <div class='bigimg'>
-        <img id="picbtn" src="{{ entry['image1'] }} "bigsrc="{{ entry['image1'] }}">
-		<h2>
-            {% if entry['subname'] %}
-                <font style="color:red;">{{ entry['subname'] }}</font>
-            {% end %}
-                {{ entry['name'] }}
+        <img id="picbtn" src="{{ entry.image1|get_goods_pic_path }}" bigsrc="{{ entry.image1|get_goods_pic_path }}">
+        <h2>
+            {% if entry.subname %}
+            <font style="color:red;">{{ entry.subname }}</font>
+            {% endif %}
+            {{ entry.name }}
         </h2>
     </div>
     <div class='price'>
-		<div class='price'>
-            {% if entry['discount'] %}
-                <span>本店价：</span> <b>¥{{ entry['discount'] }}</b>
-                <del>¥{{ entry['price'] }}</del>
+        <div class='price'>
+            {% if entry.discount %}
+            <span>本店价：</span> <b>¥{{ entry.discount }}</b>
+            <del>¥{{ entry.price }}</del>
             {% else %}
-                <span>本店价：</span> <b>¥{{ entry['price'] }}</b>
-            {% end %}
-		</div>
+            <span>本店价：</span> <b>¥{{ entry.price }}</b>
+            {% endif %}
+        </div>
     <div class='number'>
         <span class='num'>数量：</span><input start_unit="1" id="buy_num" type="number" value='1' >
         <input type="hidden" value="1" id="start_unit">
@@ -83,9 +84,9 @@
     </div>
 	<div>
 		{% if permit %}
-		<a href="/edit/{{ entry['_id'] }}"><button class='u-btn-blue u-btn-halfwd btn-addcart'>编辑</button></a>
-		<a href="/edit/{{ entry['_id'] }}"><button class='u-btn-red u-btn-halfwd btn-addcart'>删除</button></a>
-		{% end %}
+		<a href="/edit/{{ entry|get_pymongo_document_id }}"><button class='u-btn-blue u-btn-halfwd btn-addcart'>编辑</button></a>
+		<a href="/edit/{{ entry|get_pymongo_document_id }}"><button class='u-btn-red u-btn-halfwd btn-addcart'>删除</button></a>
+		{% endif %}
 	</div>
     <!-- <div class='btns f-clr'> -->
     <!--     <button class='u-btn-grad btn-buy' id="buynow">立即购买</button> -->
@@ -241,4 +242,4 @@ $("#buy_num").focusout(function(){
     }
 });
 </script>
-{% end %}
+{% endblock %}

@@ -13,11 +13,12 @@ import sys
 import os
 
 # set python path
-PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, PROJECT_PATH)
 
 # Template path, static path
 TEMPLATES_PATH, STATIC_PATH = map(lambda x: os.path.join(PROJECT_PATH, x).replace('\\', '/'), ('templates/', 'static/'))
+IMAGE_PATH = "%simages/" % STATIC_PATH
 
 import pymongo
 from mongoengine import connect
@@ -60,7 +61,7 @@ SESSION_COOKIE_DOMAIN = '.screw.com.cn'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # static path or url
-if os.path.exists('%s/.git' % PROJECT_PATH):
+if os.path.exists('%s/../.git' % PROJECT_PATH):
     STATIC_URL = '/static/'
 else:
     STATIC_URL = 'http://static.screw.com.cn/static/'

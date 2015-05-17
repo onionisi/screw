@@ -55,3 +55,4 @@ target/
 # Development Configration
 development.py
 .DS_Store
+screw/static/images/goods/*

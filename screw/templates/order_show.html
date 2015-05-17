@@ -59,30 +59,6 @@
 
 {% block body %}
 	<div class='m-order'>
-		<!-- 收货地址 -->
-		<a href="/my_account_address?order_id={{ oid }}">
-			<div class='m-order-addr u-box f-clr'>
-				<div class='f-fl cnt'>
-					<p class='title'>收货地址</p>
-					{% if addr %}
-					<div>{{ addr['receiver'] }}<br>
-						{% if addr['zone'] == 'swust' %}
-						西南科技大学
-						{% elif addr['zone'] == 'mnu' %}
-						绵阳师范学院
-						{% end %}
-						{{ addr['address'] }}<br>
-						{{ addr['mobile'] }}<br>
-					</div>
-					{% else %}
-					<div class='empty'>请添加收货地址 </div>
-					{% end %}
-				</div>
-				<div class='f-fr arrow-right'>
-					<button type='button'></button>
-				</div>
-			</div>
-		</a>
 		<!-- 送货时间 -->
 		<div class='m-order-time u-box '>
 			<p class='title'>指定送货时间</p>
