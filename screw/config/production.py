@@ -1,12 +1,10 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 # Django settings for screw project.
 
-DEBUG = False
+DEBUG = True
 
-
-MONGODB_USER = 'root'
-MONGODB_PASSWD = 'root'
-MONGODB_HOST = 'net'
+MONGODB_HOST = '127.0.0.1:27017'
 MONGODB_NAME = 'screw'
-MONGODB_DATABASE_HOST = \
-       'mongodb://%s:%s@%s/%s' \
-       % (MONGODB_USER, MONGODB_PASSWD, MONGODB_HOST, MONGODB_NAME)
+MONGODB_DATABASE_HOST = 'mongodb://%s/%s' % (MONGODB_HOST, MONGODB_NAME)
