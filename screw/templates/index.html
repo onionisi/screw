@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load uifilters %}
+
+{% block header %}
+    <section style="width: 100p;">
+        <span class="city">绵阳</span>
+    </section>
+    <section>三驾马车</section>
+    <section></section>
+{% endblock %}
+
+{% block body %}
+<style>
+    .u-boxlist-w300 li a div img{height: 94px;width: 94px;}
+</style>
+<div class='u-boxlist-w300' style="margin-top: 20px;">
+    <ul>
+        {% for each in entry %}
+            <li>
+            <a href="/good/good_detail?goods_id={{ each|get_pymongo_document_id }}">
+            	<div class='u-box m-proitem f-clr'>
+                    <img src="{{ STATIC_URL }}images/icons/empty.png" data-url="{{ each.image2|get_goods_pic_path }}">
+            		<h2>
+            			{% if each.subname %}
+            			<font style="color:red;">{{ each.subname }}</font>
+            			{% endif %}
+            			{{ each.name }}
+            		</h2>
+            		<div class='price'>
+            			{% if each.discount %}
+            			<span>¥{{ each.discount }}</span>
+            			<del>¥{{ each.price }}</del>
+            			{% else %}
+            			<span>¥{{ each.price }}</span>
+            			{% endif %}
+            		</div>
+            	</div>
+            </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<script> $("img[data-url]").imglazyload(); </script>
+{% endblock %}
